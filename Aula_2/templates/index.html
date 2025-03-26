@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Index{% endblock %}
+
+{% block content %}
+    <h1>Hello World</h1>
+    <h2>{{myvalue}}</h2>
+    <h3>{{myresult}}</h3>
+
+    <ul>
+        {% for item in mylist %}
+            {% if item == 4 %}
+                <li style="color: red">{{ item }}</li>
+            {% else %}
+                <li>{{item}}</li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+
+    <ul>
+        {% for item in mylist %}
+            <li {% if item == 4 %}style="color: red"{% endif %}>{{ item }}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{{ url_for('other')}}">Other</a><br><br>
+
+    <a href="{{ url_for('redirect_endpoint')}}">Redirect Endpoint for Other</a>
+{% endblock %}
+
