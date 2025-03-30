@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}People{% endblock %}
+
+{% block content %}
+<a href="{{ url_for('people.create') }}">Register a Person</a>
+    <ul>
+        {% for person in people %}
+            <li>Name: {{ person.name }} - Age: {{ person.age }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
